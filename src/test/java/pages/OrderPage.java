@@ -10,7 +10,7 @@ public class OrderPage {
     // Локаторы для проверки второго сценария
     private final By ORDER_HEADER = By.xpath("//div[(text()= 'Для кого самокат')]");
     // элемент страницы заполнения данных
-    private final By RENT_HEADER = By.xpath("//div[(text()= 'Про аренду')]");
+    public final By RENT_HEADER = By.xpath("//div[(text()= 'Про аренду')]");
     // элемент страницы заполнения данных
     private final By INPUT_NAME = By.xpath("//input[@placeholder ='* Имя']");
     // поле имя

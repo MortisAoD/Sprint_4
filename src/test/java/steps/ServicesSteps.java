@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import service.Inject;
+
 
 // Описывает большинство однообразных шагов
-public class ServicesSteps extends Inject {
+public class ServicesSteps {
+
+    public WebDriver webDriver;
 
     public ServicesSteps(WebDriver driver) {
         this.webDriver = driver;
@@ -57,6 +59,16 @@ public class ServicesSteps extends Inject {
             return true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
+        }
+    }
+
+    // Проверка отсутствия элемента
+    public boolean isElementNotPresent(By locatorKey) {
+        try {
+            webDriver.findElement(locatorKey);
+            return false;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return true;
         }
     }
 }

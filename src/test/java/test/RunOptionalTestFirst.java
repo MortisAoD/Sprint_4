@@ -3,50 +3,22 @@ package test;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.OrderPage;
-import service.Inject;
 import steps.ProfileSteps;
 import steps.ServicesSteps;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.runners.Parameterized.Parameters;
 
-public class RunOptionalTest extends Inject {
+public class RunOptionalTestFirst {
 
-    @RunWith(Parameterized.class)
-    public static class OptionalParamTest extends RunOptionalTest {
+    public OrderPage objOrderPage;
+    public  HomePage objHomePage;
+    public ServicesSteps objService;
+    public ProfileSteps objProfileSteps;
+    public ChromeDriver driver;
 
-        private final By errorTextOrderPage;
-
-        public OptionalParamTest(By errorTextOrderPage) {
-            this.errorTextOrderPage = errorTextOrderPage;
-        }
-
-
-        @Parameters
-        public static Object[][] getData() {
-            OrderPage orderPage = new OrderPage();
-            return new Object[][]{
-                    {orderPage.getErrorName()},
-                    {orderPage.getErrorSurname()},
-                    {orderPage.getErrorAddress()},
-                    {orderPage.getErrorStation()},
-                    {orderPage.getErrorPhone()}
-            };
-        }
-
-        @Test
-        public void errorOrderPage() {
-            objService.click(objHomePage. getOrderedTop());
-            objService.click(objOrderPage.getNextButton());
-            objService.waitPageElement(errorTextOrderPage);
-        }
-    }
 
     @Before
     public void globalSetup() {

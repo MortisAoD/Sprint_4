@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.OrderPage;
-import service.Inject;
 import steps.ProfileSteps;
 import steps.ServicesSteps;
 
@@ -17,8 +16,13 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class RunTestOrderPage extends Inject {
+public class RunTestOrderPage  {
 
+    public OrderPage objOrderPage;
+    public  HomePage objHomePage;
+    public ServicesSteps objService;
+    public ProfileSteps objProfileSteps;
+    public ChromeDriver driver;
     private final String name;
     private final String surname;
     private final String address;

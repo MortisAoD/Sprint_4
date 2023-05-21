@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
-import service.Inject;
 import steps.ServicesSteps;
 
 import static org.junit.Assert.assertThat;
@@ -15,8 +14,11 @@ import static org.junit.matchers.JUnitMatchers.containsString;
 import static org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class RunTestHomePage extends Inject {
+public class RunTestHomePage  {
 
+    public  HomePage objHomePage;
+    public ServicesSteps objService;
+    public ChromeDriver driver;
     private final String checkedText;
     private final int index;
 

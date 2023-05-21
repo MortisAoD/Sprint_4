@@ -4,10 +4,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.OrderPage;
-import service.Inject;
 
 // Содержит методы для заполнение данных по заказу
-public class ProfileSteps extends Inject {
+public class ProfileSteps {
+
+    public OrderPage objOrderPage;
+    public WebDriver webDriver;
+    public ServicesSteps objService;
 
     public ProfileSteps(WebDriver driver) {
         this.webDriver = driver;
@@ -22,8 +25,11 @@ public class ProfileSteps extends Inject {
         objOrderPage.getSurname().sendKeys(surname);
         objOrderPage.getAddress().sendKeys(address);
         objOrderPage.getPhoneNumber().sendKeys(phoneNumber);
-        new Actions(webDriver).moveToElement(objOrderPage.getStation()).click().sendKeys(station)
-                .sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+        if (!station.equals(" ")) {
+            new Actions(webDriver).moveToElement(objOrderPage.getStation()).click().sendKeys(station)
+                    .sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+        }
+        else System.out.println("Станция метро не выбрана по данным теста");
     }
 
     // Зполнения данных по заказу
